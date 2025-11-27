@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -11,7 +12,13 @@ body {
 }
 
 .site-header {
-  text-align: center;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.site-header #site-logo {
+  width: 300px;
 }
 
 main {
@@ -23,17 +30,64 @@ main {
   gap: 20px;
 }
 
-main label:first-child {
-  font-size: 1.4rem;
+main label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#api-key {
+  min-width: 300px;
+}
+
+#settings {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
 }
 
 main #enter-message {
   width: 300px;
   height: 30px;
   padding-left: 30px;
+  margin-top: -10px;
+  border-radius: 1rem;
 }
 
 main #send-msg {
   border-radius: 1rem;
   padding: 5px 9px;
+}
+
+#response {
+  display: none;
+  border: solid 1px rebeccapurple;
+  margin: 10px 80px;
+  padding: 20px 30px;
+  border-radius: 1.5rem;
+  max-width: 1000px;
+}
+
+/* HTML: <div class="loader"></div> */
+/* https://css-loaders.com/spinner/ */
+.loader {
+  display: none;
+  width: 90px;
+  --b: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #514b82;
+  mask: repeating-conic-gradient(#0000 0deg, #000 1deg 70deg, #0000 71deg 90deg),
+    radial-gradient(
+      farthest-side,
+      #0000 calc(100% - var(--b) - 1px),
+      #000 calc(100% - var(--b))
+    );
+  -webkit-mask-composite: destination-in;
+  mask-composite: intersect;
+  animation: l5 1s infinite;
+}
+@keyframes l5 {
+  to {
+    transform: rotate(0.5turn);
+  }
 }

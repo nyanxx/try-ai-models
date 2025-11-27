@@ -2,17 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/ai-svgrepo-com.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ai-test</title>
+    <title>Try Ai Models</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="site-header">
-      <h1>Try Model</h1>
+      <img
+        src="/site-logo-300.jpg"
+        alt="Try ai models site logo"
+        id="site-logo"
+      />
     </header>
     <main>
-      <label for="enter-message">Enter you message</label>
+      <div id="settings">
+        <label for="select-model">
+          Select model:
+          <select name="select-model" id="select-model">
+            <option value="" disabled selected>Select Model</option>
+            <option value="mistralai/Mistral-7B-Instruct-v0.2:featherless-ai">
+              Mistral 7B Instruct v0.2 Featherless AI
+            </option>
+          </select>
+        </label>
+        <label for="api-key">
+          Enter your API / Token here:
+          <input type="text" id="api-key" name="api-key" />
+        </label>
+      </div>
+      <label for="enter-message">Enter your message</label>
       <input
         id="enter-message"
         name="enter-message"
@@ -20,6 +39,7 @@
         placeholder="e.g., What is the capital of France?"
       />
       <button id="send-msg">Send</button>
+      <div class="loader"></div>
       <div id="response"></div>
     </main>
     <script type="module" src="index.js"></script>
